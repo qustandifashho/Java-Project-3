@@ -25,13 +25,13 @@ public class PracticeProject3{
         
         boolean isValidInput = true;
         while(isValidInput){
-          System.out.print("What form will be shown (C-ircle, R-ectangle)?"); ////////////////////
-          char form  = CONSOLE.next().charAt(0); /////////////////////
+          System.out.print("What form will be shown (C-ircle, R-ectangle)?"); 
+          char form  = CONSOLE.next().charAt(0);
           if (form == 'S' || form == 's' || form == 'R' || form == 'r') {
             xPos = 0;
             yPos = 0;
             size = 100;
-            //g.fillRect(xPos, yPos, size, size / 2); //////////////// 
+            //g.fillRect(xPos, yPos, size, size / 2);  
             break;
         } else if (form == 'C' || form == 'c') {
             xPos = 0;
@@ -44,16 +44,11 @@ public class PracticeProject3{
             
         }
         }
-        
-        
-        
-        
-        
-
 
         // obtain values
         System.out.print("How many forms do you want to show (max 9)? ");
         xPositions[0] = CONSOLE.nextInt();
+        
         System.out.print("How many times do you want the form to move (max 500)?");
         yPositions[0] = CONSOLE.nextInt();
 
@@ -74,7 +69,7 @@ public class PracticeProject3{
             // move and show updated positions
             for (int j = 0; j < numForms; j++) {
                 moveForm(xPositions, yPositions, j, movement); 
-                showForm(panel, forms[j], xPositions[j], yPositions[j], colors[j], 40); // Size of R or C is 40 
+                showForm(panel, forms[j], xPositions[j], yPositions[j], colors[j], 40); // Size each R or C is 40 pixels
             }
 
             // add delay (need to look up for delaying)
@@ -195,32 +190,22 @@ public class PracticeProject3{
         g.fillRect(xPos, yPos, size, size); //////////
         g.setColor(Color.BLACK); /////////   
     } 
-      else if( form == 'S' || form == 's' || form == 'R' || form == 'r'){
-          Graphics g = panel.getGraphics(); ////////////
-        g.setColor(Color.BLACK); //////////
+      else if(form == 'R' || form == 'r'){
+        Graphics g = panel.getGraphics(); 
+        g.setColor(Color.BLACK); 
         g.drawRect(xPos, yPos, size, size);
         g.setColor(color); 
-        g.fillRect(xPos, yPos, size, size); //////////
-        g.setColor(Color.BLACK); ///////// 
+        g.fillRect(xPos, yPos, size, size); 
+        g.setColor(Color.BLACK); 
         
       }
-    
-        
       else {
         Graphics g = panel.getGraphics();
+        g.setColor(Color.BLACK);
+        g.drawOval(xPos, yPos, size, size);
         g.setColor(color);
         g.fillOval(xPos, yPos, size, size);
         g.setColor(Color.BLACK); 
-        /*
-        System.out.print("Type C for circle or R for rectangle"); ////////////////////
-        form = CONSOLE.next().charAt(0); /////////////////////
-        if (form == 'R') {
-            g.drawRect(xPos, yPos, size, size / 2); 
-        } else if (form == 'C') {
-            g.drawOval(xPos, yPos, size, size);
-        } else {
-            System.out.println("Invalid form input: " + form);
-           */
         }
     }
 }
